@@ -296,7 +296,6 @@ while True:
                     
                     if is_valid_word(guess): 
                         feedback = check_guess(guesses[current_guess_row], selected_word)
-                        print(f'Guess: {guesses[current_guess_row]}, Feedback: {feedback}')
                         
                         if guess == selected_word:
                             guess_correct = True
