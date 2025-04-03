@@ -46,7 +46,6 @@ box_size = 70
 padding = 10
 random_mode = True
 selected_word = select_random_word(random_mode=random_mode)
-print(selected_word)
 max_word_length = len(selected_word)  
 max_guesses = 6  
 guesses = [[] for _ in range(max_guesses)] 
@@ -110,7 +109,6 @@ def show_popup_message(message):
 def reset_game():
     global selected_word, guesses, current_guess_row, show_popup, guess_correct, current_length, random_mode, max_word_length, entry_boxes
     selected_word = select_random_word(random_mode=random_mode, length=current_length) 
-    print(selected_word)
     max_word_length = len(selected_word) 
     guesses = [[] for _ in range(max_guesses)]  
     current_guess_row = 0  
@@ -206,8 +204,8 @@ last_selected_option = selected_option
 while True:
     screen.fill(BLACK)
     
-    draw_persistent_menu()
     display_current_game_mode(current_game_mode)
+    draw_persistent_menu()
     
     for j in range(max_guesses): 
         for i in range(max_word_length):  
@@ -251,7 +249,6 @@ while True:
 
         elif guess_correct or current_guess_row == max_guesses:
             if guess_correct and current_game_mode == f"Level {current_level}":
-                print(current_level)
                 current_level += 1
                 current_length = current_level + 4
                 data_dict["game_level"] = current_level
@@ -313,6 +310,7 @@ while True:
             show_popup_message("YOU GOT THE WORD!!")
         elif current_guess_row == max_guesses:
             show_popup_message(f'THE WORD WAS {selected_word}')
+    
 
     pygame.display.flip()
     clock.tick(30)
