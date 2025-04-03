@@ -3,7 +3,9 @@ import sys
 import os
 import json
 import pkg_resources
-import requests
+from spellchecker import SpellChecker
+import time
+import random
     
 
 def check_and_install_pip():
@@ -73,21 +75,25 @@ def install_packages():
 def get_game_words():
     print("\033[34m\nPlease wait while the game words are being downloaded.\033[0m")
 
-    # set up datamuse url
-    url = "https://random-word-api.herokuapp.com/word"
+    all_words = list(SpellChecker())
 
     filtered_words = []
+    word_len = 5
+    count = 0
 
-    while len(filtered_words) < 10:
-        response = requests.get(url)
-        if response.status_code == 200:
-            word = response.json()[0]
-            filtered_words.append(word)
+    while len(filtered_words) < 120:
+        word = random.choice(all_words)
+        if all(char.isalpha() for char in word):
+            if len(word) == word_len:
+                filtered_words.append(word)
+                count += 1
+            
+            if count == 20:
+                count = 0
+                word_len += 1
         
-        else:
-            print(f"\033[31mError fetching word. Status code: {response.status_code}\033[0m")
-            break
-    
+
+    time.sleep(5)
     print("\033[32m\nWords download complete\033[0m")
 
 
@@ -97,17 +103,14 @@ def get_game_words():
 def new_user():
     """Checks if the user is new. If so, creates a JSON file and installs the necessary game packages."""
     if not os.path.exists('config.json'):
-        # install all the required packages
         check_and_install_pip()
         install_packages()
 
-        # get the words that will be used in the game
         words_list = get_game_words()
         words_list = [word for word in words_list if 5 <= len(word) <= 12]
 
-        # create a json file for new user
         with open('config.json', 'w') as file:
-            json.dump({"words_list": words_list}, file)
+            json.dump({"words_list": words_list, "game_level" : 1}, file)
 
     else:
         print("Welcome back!")
