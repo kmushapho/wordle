@@ -25,16 +25,14 @@ When you first run the game, it will automatically install these dependencies if
 Installation & Setup
 Step 1: Clone the repository
 First, clone the repository to your local machine:
-
-bash
-Copy
 git clone https://github.com/kmushapho/wordle.git
+
+Cd to the directory:
 cd wordle
+
 Step 2: Run the game
 Execute the wordle.py script to start the game:
 
-bash
-Copy
 python wordle.py
 The first time you run the game, it will automatically install any required packages using pip (if they are not already installed). This includes:
 
@@ -42,7 +40,7 @@ spellcheck
 
 pygame
 
-Additionally, it will create a JSON file that stores game settings and data.
+Additionally, it will create a JSON file that stores game words and saved game level.
 
 Step 3: Playing the Game
 Once the game is running, you can choose from several play modes:
