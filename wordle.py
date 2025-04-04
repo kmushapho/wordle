@@ -250,6 +250,7 @@ while True:
         elif guess_correct or current_guess_row == max_guesses:
             if guess_correct and current_game_mode == f"Level {current_level}":
                 current_level += 1
+                current_game_mode = f"Level {current_level}"
                 current_length = current_level + 4
                 data_dict["game_level"] = current_level
                 with open('config.json', 'w') as file:
@@ -288,7 +289,7 @@ while True:
                             current_length = current_level + 4
                             reset_game()
                         
-                        else:
+                        if True:
                             handle_option_click(pygame.mouse.get_pos(), selected_option) 
 
                 if len(guesses[current_guess_row]) == max_word_length:  
