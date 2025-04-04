@@ -13,25 +13,18 @@ def check_and_install_pip():
     If not, it installs pip for the user."""
 
     try:
-        # check if pip is installed
         subprocess.check_call([sys.executable, "-m", "pip", "--version"])
-        # if pip already installed tell the user
         print("\033[32m\npip is already installed on this device.\033[0m")
     
     except subprocess.CalledProcessError:
-        # tell user if pip not already installed
         print("\033[31m\nPip is not installed. Installing pip.....\033[0m")
 
-        # first update sudo apt
         subprocess.check_call(["sudo", "apt", "update"])
-        # install pip
         subprocess.check_call(["sudo", "apt", "install", "-y", "python3-pip"])
     
     except:
-        # tell user to install pip manually
         print("\033[31m\nFailed to install pip using apt. Please install pip manually\033[0m")
 
-        # exit the program
         sys.exit(1)
 
 
@@ -43,25 +36,21 @@ def install_packages():
         with open("requirements.txt", "r") as file:
             packages = file.readlines()
 
-        # remove any whitespaces from the packages
         packages = [i.strip() for i in packages]
 
         for package in packages:
 
             try:
-                # check if package is already installed
                 pkg_resources.get_distribution(package)
                 print(f"\033[32m\n{package} is already installed on this device.\033[0m")
 
             except pkg_resources.DistributionNotFound:
-                # if its not found, install it
                 print(f"\033[31m\n{package} not found. Installing....\033[0m")
 
 
 
                 try:
-                    # run pip install using the subprocess modules to install all requiremets
-                    subprocess.check_call([sys.executable, "pip", "install", "requiments.txt"])
+                    subprocess.check_call([sys.executable, "pip", "install", package])
                     print("\033[32m\nAll packages were installed successfully\033[0m")
 
 
