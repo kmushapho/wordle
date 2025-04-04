@@ -6,23 +6,23 @@ Welcome to Wordle Unlimited Dupe, a Python-based game inspired by the popular Wo
 
 ## Game Modes
 
-- **Random Mode: Play with randomly selected words.
+- Random Mode: Play with randomly selected words.
 
-- **Levels Mode: Play through levels with increasing difficulty.
+- Levels Mode: Play through levels with increasing difficulty.
 
-- **Custom Word Length: Choose the length of the word to guess (between 5 and 10 characters).
+- Custom Word Length: Choose the length of the word to guess (between 5 and 10 characters).
 
-- **Spellchecking: Built-in spellcheck for valid words.
+- Spellchecking: Built-in spellcheck for valid words.
 
-- **Pygame Interface: A simple yet engaging graphical interface for playing the game.
+- Pygame Interface: A simple yet engaging graphical interface for playing the game.
 
 ## Requirements
 
-- **Before you can run the game, you'll need Python installed on your computer. The game also uses two external packages:
+- Before you can run the game, you'll need Python installed on your computer. The game also uses two external packages:
 
-- **Pygame: For the graphical user interface.
+- Pygame: For the graphical user interface.
 
-- **Spellcheck: To verify valid words.
+- Spellcheck: To verify valid words.
 
 ### Installation Steps
 
@@ -43,21 +43,21 @@ Welcome to Wordle Unlimited Dupe, a Python-based game inspired by the popular Wo
    - python wordle.py
    - On the first run, the game will automatically install the required packages using pip (if they aren't already installed). This includes:
 
-    - **spellcheck
+    - spellcheck
 
-    - **pygame
+    - pygame
 
-    - **Additionally, the game will create a JSON file that stores game data and your saved progress.
+    - Additionally, the game will create a JSON file that stores game data and your saved progress.
 
 5. Playing the Game
 
 Once the game is running, you can choose from several play modes:
 
-    - **Random Mode: The game selects a random word for you to guess.
+    - Random Mode: The game selects a random word for you to guess.
 
-    - **Levels Mode: Increase the difficulty as you progress through levels.
+    - Levels Mode: Increase the difficulty as you progress through levels.
 
-    - **Specific Word Length: Choose a word length between 5 and 10 characters.
+    - Specific Word Length: Choose a word length between 5 and 10 characters.
 
-##Contributing
+## Contributing
 Feel free to open issues, submit pull requests, or suggest new features. This project is open for collaboration, and contributions are welcome!
