@@ -84,8 +84,6 @@ def get_game_words():
 
     time.sleep(5)
     print("\033[32m\nWords download complete\033[0m")
-
-
     return filtered_words
 
 
